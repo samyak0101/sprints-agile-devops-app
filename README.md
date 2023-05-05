@@ -1,5 +1,9 @@
 # Sprint (DevOps Tool for students)
 
+Try it out!
+https://2ced-128-105-37-247.ngrok-free.app/
+This url will probably be inactive after 10th May 2023. Potentially active up until September 5th 2023. 
+
 # v2.0
 Last updated: 4/19/2023
 AGDev43 (L2_43)
