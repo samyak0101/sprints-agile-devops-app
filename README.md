@@ -4,6 +4,9 @@ Try it out!
 https://2ced-128-105-37-247.ngrok-free.app/
 This url will probably be inactive after 10th May 2023. Potentially active up until September 5th 2023. 
 
+![image](https://user-images.githubusercontent.com/52031393/236638821-66dd9b68-0711-49c6-aa0d-6e3709ec618d.png)
+
+
 # v2.0
 Last updated: 4/19/2023
 AGDev43 (L2_43)
@@ -48,4 +51,14 @@ cd into the express back end folder and type in
 
 This will run everything. Now, just go to localhost:3000 in your web browser and you should be able to access the application.
 
-# Problems
+### Create, Edit, Delete tasks:
+![image](https://user-images.githubusercontent.com/52031393/236638875-3fdcf65c-201e-4aab-a93a-843fbf9fd580.png)
+
+### Start a story poker session!
+![image](https://user-images.githubusercontent.com/52031393/236638922-6662b3e9-2b63-4355-b0c3-192e2105bda9.png)
+
+### Instantly text people using the app
+![image](https://user-images.githubusercontent.com/52031393/236638936-6b79d390-8825-4129-987b-42df9869b1c4.png)
+
+### Learn about agile!
+![image](https://user-images.githubusercontent.com/52031393/236638954-83ac144f-eaea-45fd-84b7-a9ec11f88c57.png)
