@@ -25,12 +25,11 @@ The backend is not run. Rather, it is a storage to show the current back-end cod
 
 # Description
 These are the current features of the product:
-1. login and logout with google (no signup yet, mark working on it)
+1. login and logout with google (no signup feature yet).
 2. login-protect all app-pages
-3. taskboard (add new tasks, retreive tasks not working yet but manisha working on it)
-4. story poker (ui ready, backend in progress samyak and casilda)
-5. post any query to db
-6. chatroom (over same network only).
+3. taskboard (add new tasks, edit, delete tasks) - [all working]
+4. story poker (create, answer, view stories) - [all working]
+5. chatroom [working]
 
 
 # Docker 
