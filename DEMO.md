@@ -38,4 +38,4 @@ One more thing. Chatroom. For the chatroom, it is necessary to run and connect t
 
 And that's it. You should now have a full on working application using about 5 docker containers. Php docker container is optional. So, react + flask + sql + express = 4 containers.
 
-An ngrok container can be added on to publish the localhost url for people to interact. Even better, create docker-compose.yml and transfer all files to aws. Then anyone can access the app. Maybe buy a domain name because why not and boom we're done. 
+An ngrok container can be added on to publish the localhost url for people to interact. Even better, create docker-compose.yml and transfer all files to aws. Then anyone can access the app. Anyone know where I can get free domain names maybe?
