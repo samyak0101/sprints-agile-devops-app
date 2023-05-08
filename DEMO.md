@@ -21,7 +21,7 @@ docker run -it --link backend -e NGROK_AUTHTOKEN=token ngrok/ngrok:alpine http b
 
 phpmyadmin and mysql containers run together from Casilda's mysql docker-compose file. Once they are running, localhost 8080 should have the php image. localhost 3306 should have the mysql databse and the image should be called 'database'. 
 
-Once database is set-up, we run the flask server on 5238. (It can be a random port but needed for ngrok). Flask container will be called 'backend'. Once this container is running, we need to connect it to the database for queries. 
+Once database is set-up, we run the flask server on 5238. Flask container will be called 'backend'. Once this container is running, we need to connect it to the database for queries. 
 
 We create a docker network with backend and database. Now, since the flask server calls the main function of dbservices, the main function accepts arguments hostname, password, query, database, and user. 
 
