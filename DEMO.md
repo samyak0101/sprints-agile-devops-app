@@ -4,19 +4,6 @@ https://uwmadison.zoom.us/rec/share/iFaoperAaj-tyHLcIWajps5Axdp2aRrRPe-7jTEe312F
 
 Passcode: i^3LgzfG
 
-docker build -t express .
-docker run -it -p 3001:3001 --name ex express
-
-docker build -t frontend .
-docker run -it -p 3000:3000 --name rf frontend
-
-docker build -t flask-samyak .
-docker run -p 5238:5238 -d --name backend flask-samyak
-
-docker run -it --link backend -e NGROK_AUTHTOKEN=token ngrok/ngrok:alpine http backend:5238
-
--> missing php and flask images, but you can probably google and make your own.
-
 # Docker structure:
 
 phpmyadmin and mysql containers run together from Casilda's mysql docker-compose file. Once they are running, localhost 8080 should have the php image. localhost 3306 should have the mysql databse and the image should be called 'database'. 
@@ -39,3 +26,20 @@ One more thing. Chatroom. For the chatroom, it is necessary to run and connect t
 And that's it. You should now have a full on working application using about 5 docker containers. Php docker container is optional. So, react + flask + sql + express = 4 containers.
 
 An ngrok container can be added on to publish the localhost url for people to interact. Even better, create docker-compose.yml and transfer all files to aws. Then anyone can access the app. Anyone know where I can get free domain names maybe?
+
+
+# Docker commands
+
+
+docker build -t express .
+docker run -it -p 3001:3001 --name ex express
+
+docker build -t frontend .
+docker run -it -p 3000:3000 --name rf frontend
+
+docker build -t flask .
+docker run -p 5238:5238 -d --name backend flask
+
+docker run -it --link backend -e NGROK_AUTHTOKEN=token ngrok/ngrok:alpine http backend:5238
+
+-> missing php and flask images, but you can probably google and make your own.
