@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { hour_needed } from "./QuestionPage.js";
 import "./style.css";
-import { SERVER_URL } from "../../configdata.js";
+import { SERVER_URL, DATABASE, HOSTNAME, USER, PASSWORD, PORTNUM,  } from "../../configdata";
 import { question2 } from "./QuestionPage.js";
 
 const ResultsPage = () => {
@@ -15,12 +15,12 @@ const ResultsPage = () => {
         "ngrok-skip-browser-warning": "anything",
       },
       body: JSON.stringify({
-        hostname: "agdev-db",
-        portnum: "3306",
+        hostname: HOSTNAME,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE,
+        portnum: PORTNUM,
         query: "select * from SP;",
-        user: "root",
-        password: "mc",
-        database: "AGDev43",
       }),
     })
       .then((response) => response.json())

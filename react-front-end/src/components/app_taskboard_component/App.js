@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cookies from "js-cookie";
 import "./taskboard.css";
-import { SERVER_URL } from "../../configdata";
+import { SERVER_URL, DATABASE, HOSTNAME, USER, PASSWORD, PORTNUM,  } from "../../configdata";
 import { FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 
 function dbstuff() {
@@ -13,12 +13,12 @@ function dbstuff() {
       "ngrok-skip-browser-warning": "anything",
     },
     body: JSON.stringify({
-      hostname: "agdev-db",
-      portnum: "3306",
+      hostname: HOSTNAME,
+      user: USER,
+      password: PASSWORD,
+      database: DATABASE,
+      portnum: PORTNUM,
       query: "select * from Task;",
-      user: "root",
-      password: "mc",
-      database: "AGDev43",
     }),
   })
     .then((response) => response.json())
@@ -53,8 +53,11 @@ function TaskForm({ onSubmit, setTasks, loadTasks }) {
         "ngrok-skip-browser-warning": "anything",
       },
       body: JSON.stringify({
-        hostname: "agdev-db",
-        portnum: "3306",
+        hostname: HOSTNAME,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE,
+        portnum: PORTNUM,
         query:
           "INSERT INTO `Task` (`TaskNum`, `PNum`, `Title`, `Desc`, `DueDate`, `Hours`, `Priority`, `Status`, `Sprint`, `DateCreated`, `CreatorEmail`)" +
           "VALUES (NULL , 8,'" +
@@ -70,9 +73,6 @@ function TaskForm({ onSubmit, setTasks, loadTasks }) {
           "', NULL, NULL, NULL,'" +
           Cookies.get("user_email") +
           "')",
-        user: "root",
-        password: "mc",
-        database: "AGDev43",
       }),
     })
       .then((response) => response.json())
@@ -232,12 +232,12 @@ function dbEdit(task) {
       "ngrok-skip-browser-warning": "anything",
     },
     body: JSON.stringify({
-      hostname: "agdev-db",
-      portnum: "3306",
+      hostname: HOSTNAME,
+      user: USER,
+      password: PASSWORD,
+      database: DATABASE,
+      portnum: PORTNUM,
       query: input_query, //to_do
-      user: "root",
-      password: "mc",
-      database: "AGDev43",
     }),
   })
     .then((response) => response.json())
@@ -254,12 +254,12 @@ function dbDelete(taskTitle) {
       "ngrok-skip-browser-warning": "anything",
     },
     body: JSON.stringify({
-      hostname: "agdev-db",
-      portnum: "3306",
+      hostname: HOSTNAME,
+      user: USER,
+      password: PASSWORD,
+      database: DATABASE,
+      portnum: PORTNUM,
       query: input_query,
-      user: "root",
-      password: "mc",
-      database: "AGDev43",
     }),
   })
     .then((response) => response.json())

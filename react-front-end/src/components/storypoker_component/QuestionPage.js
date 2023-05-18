@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SERVER_URL } from "../../configdata";
+import { SERVER_URL, DATABASE, HOSTNAME, USER, PASSWORD, PORTNUM,  } from "../../configdata";
 import "./style.css";
 import Cookies from "js-cookie";
 
@@ -44,12 +44,12 @@ const QuestionPage = () => {
         "ngrok-skip-browser-warning": "anything",
       },
       body: JSON.stringify({
-        hostname: "agdev-db",
-        portnum: "3306",
+        hostname: HOSTNAME,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE,
+        portnum: PORTNUM,
         query: queryString,
-        user: "root",
-        password: "mc",
-        database: "AGDev43",
       }),
     })
       .then((response) => response.json())

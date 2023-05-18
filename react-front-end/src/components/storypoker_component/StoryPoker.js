@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./style.css";
 import Cookies from "js-cookie";
-import { SERVER_URL } from "../../configdata.js";
+import { SERVER_URL, DATABASE, HOSTNAME, USER, PASSWORD, PORTNUM,  } from "../../configdata";
 
 let question = "";
 let assigned_user = "";
@@ -93,13 +93,13 @@ function StorypokerComp() {
         "ngrok-skip-browser-warning": "anything",
       },
       body: JSON.stringify({
-        hostname: "agdev-db",
-        portnum: "3306",
+        hostname: HOSTNAME,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE,
+        portnum: PORTNUM,
         query:
           "drop table if exists `SP`;create table `AGDev43`.`SP`(`Email` varchar(200) not null, `StoryName` varchar(500) not null,`Answer` int,`T1` datetime not null,primary key (`Email`));",
-        user: "root",
-        password: "mc",
-        database: "AGDev43",
       }),
     })
       .then((response) => response.json())
@@ -122,17 +122,17 @@ function StorypokerComp() {
         "ngrok-skip-browser-warning": "anything",
       },
       body: JSON.stringify({
-        hostname: "agdev-db",
-        portnum: "3306",
+        hostname: HOSTNAME,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE,
+        portnum: PORTNUM,
         query:
           "insert into SP (Email, StoryName, Answer, T1) values ('" +
           "submission@storypoker.com	" +
           "','" +
           Cookies.get("message") +
           "', null, NOW());",
-        user: "root",
-        password: "mc",
-        database: "AGDev43",
       }),
     })
       .then((response) => response.json())

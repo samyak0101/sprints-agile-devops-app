@@ -28,8 +28,35 @@ And that's it. You should now have a full on working application using about 5 d
 An ngrok container can be added on to publish the localhost url for people to interact. Even better, create docker-compose.yml and transfer all files to aws. Then anyone can access the app. Anyone know where I can get free domain names maybe?
 
 
-# Docker commands
+# Quick Start
 
+First, start all containers using
+`docker-compose up -d`
+Note: Ensure your ports 3000, 3001, 5238, 8080, 3306 are free. These ports will be used by docker containers.
+
+On success, you should have the above 5 ports running services on your local machine. Enter
+`http://localhost:3000`
+to verify. You should be able to go to the chatroom and enter messages now. You will notice that the taskboard doesn't work just yet **it needs a little more work**.
+
+For the **taskboard and story poker**, open up `http://localhost:8080` on your browser (this should be the phpmyadmin console). You should see an interface that looks like a website a 12 year-old created to impress their parents. 
+
+Once it's running, click on the `import` option on the navbar and then select the `AGdev43` text on the left-side panel. This will be the target for the import. On the import console, select the AGDev43.sql file from the database-backend folder of this project and click load. 
+
+Once loaded, you should be able to interact with the app normally. Enjoy!
+
+**update: I'm unable to get the taskboard and SP working properly. Docker networking is somewhat still a weaakness of mine. Fixes coming soon**
+
+### Additional docker commands
+
+To stop all containers: docker-compose down --rmi all (this will also remove all images, remove the --rmi flag to only remove containers for faster restarts).
+To execute commands in a container: docker exec -it <container_id> /bin/bash
+To attach in a container: 
+Networking debugging:
+docker exec -it rf ping express (from host machine, to check container working)
+
+
+
+### Previous docker commands I used
 
 docker build -t express .
 docker run -it -p 3001:3001 --name ex express
@@ -42,4 +69,5 @@ docker run -p 5238:5238 -d --name backend flask
 
 docker run -it --link backend -e NGROK_AUTHTOKEN=token ngrok/ngrok:alpine http backend:5238
 
--> missing php and flask images, but you can probably google and make your own.
+docker-compose up -d .
+(for sql database^)

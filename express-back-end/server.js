@@ -1,3 +1,5 @@
+process.env.DEBUG = 'socket.io:*'; // Enable debugging output for socket.io
+
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -18,7 +20,7 @@ io.on('connection', (socket) => {
   console.log('User connected');
 
   socket.on('message', (message) => {
-    io.emit('message', message);  
+    io.emit('message', message);
   });
 
   socket.on('disconnect', () => {

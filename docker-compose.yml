@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+
+  db2:
+    image: mysql/mysql-server:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mc
+      MYSQL_DATABASE: AGDev43
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "03306:3306"
+    networks:
+      - my-network
+
+  phpmyadmin2:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - db2
+    environment:
+      PMA_HOST: db2
+      PMA_USER: root
+      PMA_PASSWORD: mc
+    ports:
+      - "8080:80"
+    networks:
+      - my-network
+
+  flask:
+    build:
+      context: flask-back-end
+    ports:
+      - 5238:5238
+    restart: always
+    networks:
+      - my-network
+    depends_on:
+      - db2
+
+  rf:
+    build:
+      context: react-front-end
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - my-network
+    depends_on:
+      - express
+      - db2
+
+  express:
+    build:
+      context: express-back-end
+    restart: always
+    ports:
+      - 3001:3001
+    networks:
+      - my-network
+    depends_on:
+      - db2
+
+networks:
+  my-network:
