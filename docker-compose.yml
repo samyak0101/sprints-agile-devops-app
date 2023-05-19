@@ -1,6 +1,5 @@
 version: '3.8'
 services:
-
   db2:
     container_name: db2
     image: mysql/mysql-server:latest

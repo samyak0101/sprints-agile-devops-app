@@ -65,7 +65,11 @@ docker run -it -p 3000:3000 --name rf frontend
 docker build -t flask .
 docker run -p 5238:5238 -d --name backend flask
 
-docker run -it --link backend -e NGROK_AUTHTOKEN=token ngrok/ngrok:alpine http backend:5238
+docker run -it --link rf -e NGROK_AUTHTOKEN=2NW8UCNL0toHdXEyDn1rgkWzYBD_3WNTiaWbSLCqU9LmJGQhY ngrok/ngrok:alpine http rf:3000
 
 docker-compose up -d .
 (for sql database^)
+
+
+docker run -it --link backend -e NGROK_AUTHTOKEN=2OyTFkUHCiq9DGTiIt0cnspNcF5_5peMcvDHq4TUFwpfjJTBA ngrok/ngrok:alpine http backend:5238
+docker run -it --link express -e NGROK_AUTHTOKEN=2OyTFkUHCiq9DGTiIt0cnspNcF5_5peMcvDHq4TUFwpfjJTBA ngrok/ngrok:alpine http express:3001

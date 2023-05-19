@@ -1,17 +1,21 @@
 version: '3.8'
-services: 
+services:
   db2:
+    container_name: db2
     image: mysql/mysql-server:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mc
-      MYSQL_DATABASE: AgDev43
+      MYSQL_DATABASE: AGDev43
       MYSQL_ROOT_HOST: '%'
-    volumes:
-      - tatdat6:/var/lib/mysql
     ports:
       - "03306:3306"
+    # networks:
+    #   - my-network
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
   phpmyadmin2:
+    container_name: phpmyadmin2
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     depends_on:
@@ -22,5 +26,5 @@ services:
       PMA_PASSWORD: mc
     ports:
       - "8080:80"
-    volumes:
-      tatdat6:
+    # networks:
+    #   - my-network

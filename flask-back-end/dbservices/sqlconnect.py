@@ -11,7 +11,7 @@ def json_serial(obj):
 
 class DBAccess:
 
-  def __init__(self, hostname="agdev-db", portnum=3306, user="root", password="mc", database="AGDev43"):
+  def __init__(self, hostname="db2", portnum=3306, user="root", password="mc", database="AGDev43"):
     try:
       self.cnx = mysql.connector.connect(user=user, password=password, host=hostname, port=portnum, database=database)
       print(user, password, hostname, portnum, database)
@@ -42,7 +42,7 @@ class DBAccess:
     self.cursor.close() 
     self.cnx.close()
 
-def main(hostname="agdev-db", portnum=3306, query="select * from Task;", user="root", password="mc", database="AGDev43"):
+def main(hostname="db2", portnum=3306, query="select * from Task;", user="root", password="mc", database="AGDev43"):
   db = DBAccess(hostname, portnum, user, password, database)
   jsonret = db.execute_query(query)
   print(jsonret)
