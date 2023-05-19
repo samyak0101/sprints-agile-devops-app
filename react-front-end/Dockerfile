@@ -1,5 +1,5 @@
-# Fetching the latest node image on alpine linux
-FROM node:alpine AS development
+# Use a smaller base image
+FROM node:lts-alpine AS development
 
 # Declaring env
 ENV NODE_ENV development
@@ -7,14 +7,14 @@ ENV NODE_ENV development
 # Setting up the work directory
 WORKDIR /react-app
 
+# Copying package files separately to leverage caching
+COPY package.json package-lock.json /react-app/
+
 # Installing dependencies
-COPY ./package.json /react-app
-COPY ./package-lock.json /react-app
 RUN npm ci
 
-# Copying all the files in our project
+# Copying the rest of the project files
 COPY . .
 
 # Starting our application
-RUN npm run build
 CMD npm start

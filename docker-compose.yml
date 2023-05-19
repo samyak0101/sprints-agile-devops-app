@@ -13,6 +13,8 @@ services:
       - "03306:3306"
     networks:
       - my-network
+    volumes:
+      - ./database-backend:/docker-entrypoint-initdb.d
 
   phpmyadmin2:
     container_name: phpmyadmin2

@@ -44,8 +44,6 @@ Once it's running, click on the `import` option on the navbar and then select th
 
 Once loaded, you should be able to interact with the app normally. Enjoy!
 
-**update: I'm unable to get the taskboard and SP working properly. Docker networking is somewhat still a weaakness of mine. Fixes coming soon**
-
 ### Additional docker commands
 
 To stop all containers: docker-compose down --rmi all (this will also remove all images, remove the --rmi flag to only remove containers for faster restarts).
