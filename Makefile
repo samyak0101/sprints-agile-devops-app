@@ -6,10 +6,10 @@ database-backend:
 	cd ./database-backend && docker-compose up -d --restart always
 
 build-flask:
- docker build -t flask .
+	cd ./flask-back-end && docker build -t flask .
 
 run-backend:
-  docker run -p 5238:5238 -d --restart always --name backend flask
+	cd ./flask-back-end && docker run -p 5238:5238 -d --restart always --name backend flask
 
 connect-backend-db:
 	docker network create flask-sql && docker network connect flask-sql db2 && docker network connect flask-sql backend
@@ -30,4 +30,4 @@ build-frontend:
 	cd ../react-front-end && docker build -t frontend .
 
 run-frontend:
-	docker run -d -p 3000:3000 -e SERVER_URL=$$(docker inspect -f '{{$$SERVER_URL}}' backend) -e EXPRESS_URL=$$(docker inspect -f '{{$$EXPRESS_URL}}' ex) --name rf frontend
+	docker run -d -p 3000:3000 -e SERVER_URL=$$(docker inspect -f '{{.Config.Env}}' backend | grep SERVER_URL | cut -d= -f2) -e EXPRESS_URL=$$(docker inspect -f '{{.Config.Env}}' ex | grep EXPRESS_URL | cut -d= -f2) --name rf frontend
