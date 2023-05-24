@@ -1,10 +1,6 @@
 # Sprint (DevOps Tool for students)
 
-Try it out!
 
-https://2ced-128-105-37-247.ngrok-free.app/
-
-This url will probably be inactive after 10th May 2023. Potentially active up until September 5th 2023. 
 
 ![image](https://user-images.githubusercontent.com/52031393/236638821-66dd9b68-0711-49c6-aa0d-6e3709ec618d.png)
 
@@ -15,14 +11,16 @@ AGDev43 (L2_43)
 authors: samyak, mark, manisha, allen, irving, casilda
 
 # Quick start
-This repository contains 4 folders. To run the front-end:
+This repository contains 4 folders. You only need 2 commands to run the entire application:
+1. Git clone
+2. docker-compose up -d
+
 
 ## Pre-reqs:
 1. Installed Docker
-2. Ran docker desktop
-3. Have at least 2gb of free ram and memory
-4. No services running on ports 3000, 3306, 8080, 5238, 3001.
-5. Patience
+2. Ran docker desktop (docker daemon needs to be running)
+3. Have at least 1gb of free ram and memory
+4. No services running on ports 3000, 3306, 8080, 5238, 3001 (these ports are used by sprints)
 
 ### Let's get started
 
