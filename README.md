@@ -10,7 +10,7 @@ Last updated: 5/18/2023 by Samyak
 AGDev43 (L2_43)
 authors: samyak, mark, manisha, allen, irving, casilda
 
-# Quick start
+# Quick start - only 2 commands!
 This repository contains 4 folders. You only need 2 commands to run the entire application:
 1. Git clone
 2. docker-compose up -d
